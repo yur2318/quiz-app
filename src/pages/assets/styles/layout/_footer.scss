@@ -1,0 +1,124 @@
+@use "../const" as cn;
+
+.footer {
+  background-color: cn.$color-lightgray;
+  padding: 40px 0 40px;
+  a{
+    color: inherit;
+  }
+}
+.footer-top {
+  display: flex;
+  justify-content: space-around;
+}
+// .footer-top-logo {
+// }
+.footer-top-info {
+  margin: 0 50px 0 20px;
+  > address {
+    font-style: normal;
+    color: cn.$color-gray;
+    margin-bottom: 30px;
+  }
+}
+.footer-top-nav {
+  display: flex;
+  margin-top: 40px;
+  > a {
+    display: block;
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
+}
+.footer-top-others {
+  width: 410px;
+  margin-top: -8px;
+}
+.footer-top-sns {
+  margin-bottom: 35px;
+  > a {
+    font-size: 28px;
+    margin-right: 14px;
+    &:hover {
+      opacity: .8;
+    }
+  }
+}
+// .footer-top-line {}
+
+.footer-border {
+  border-top: 1px solid #fff;
+  margin: 40px 0;
+}
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.footer-bottom-credit {
+  color: cn.$color-gray;
+}     
+.footer-bottom-nav {
+  display: flex;
+  > a {
+    margin-left: 32px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media screen and (max-width: cn.$bp-sm) {
+  .footer {
+    padding: 40px 20px 20px;
+    margin-top: 40px;
+  }
+  .footer-top {
+    flex-direction: column;
+  }
+  .footer-top-info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-right: 0;
+    margin-top: 0;
+    > address {
+      font-size: 10px;
+    }
+  }
+  .footer-top-logo {
+    margin-bottom: 0;
+    margin-right: 15px;
+    > img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .footer-top-nav {
+    display: none;
+  }
+  .footer-top-sns {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .footer-top-others {
+    width: 100%;
+    margin-top: 25px;
+  }
+  .footer-border {
+    margin: 20px 0;
+  }
+  .footer-bottom {
+    flex-direction: column-reverse;
+  }
+  .footer-bottom-nav {
+    margin-bottom: 10px;
+    > a{
+      margin: 0;
+      font-size: 10px;
+      &:nth-child(2) {
+        margin: 0 10px;
+      }
+    }
+  }
+}

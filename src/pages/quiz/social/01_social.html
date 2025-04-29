@@ -1,0 +1,19 @@
+<% const head = { 
+  title: playQuiz.title, 
+  disc: playQuiz.disc };%> 
+<%- include('../modules/meta/_head.html', head) %> 
+<%- include('../modules/layout/_header.html') %> 
+
+<main>
+  
+  <%- include('../modules/components/_quiz.html',{ modifier:
+    'quiz-color-orange', href: '/subjectMenu/04_social', }) %> 
+  <%- include('../modules/layout/_footer.html') %> 
+</main>
+
+<script type="module">
+  import { QUIZ_CONTENT } from '../../../data/quizData/social/social1.js';
+  import { quiz } from '../quiz.js';
+  quiz(QUIZ_CONTENT);
+</script>
+<%- include('../modules/meta/_foot.html') %>

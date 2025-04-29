@@ -1,0 +1,14 @@
+// reset
+@use "sanitize.css";
+@use "base";
+
+// layout
+@use "layout/header";
+@use "layout/footer";
+
+// components
+@use "components/top";
+@use "components/quiz";
+@use "components/menu";
+
+

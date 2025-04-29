@@ -1,0 +1,45 @@
+<div class="quiz <%= modifier %>">
+  <div class="quiz-container">
+
+    <div class="quiz-header">
+      <a href=" <%= href  %>" class="quiz-header-back">←</a>
+      <div class="quiz-header-title" id="js-quiz-title"></div>
+      <div class="quiz-header-current-number" id="js-question-number"></div>
+    </div>
+
+    <div class="quiz-question">
+      <h2 class="quiz-question-content" id="js-question-content"></h2>
+    </div>
+
+    <ul class="quiz-answer">
+      <li><button class="js-quiz-button"></button></li>
+      <li><button class="js-quiz-button"></button></li>
+      <li><button class="js-quiz-button"></button></li>
+      <li><button class="js-quiz-button"></button></li>
+    </ul>
+
+    <div class="quiz-hint-next">
+      <button class="quiz-hint" id="js-quiz-hint">💡ヒント</button>
+      <button class="next-button is-hidden" id="js-next-question">次の問題へ</button>
+    </div>
+
+    <div class="quiz-explanation">
+      <div class="quiz-explanation-text" id="js-quiz-explanation"></div>
+      <img class="quiz-explanation-image" id="js-explanation-image" alt="問題画像">
+    </div>
+
+    <div class="click-event"></div>
+
+    <div class="finish">
+      <h1>結果！</h1>
+      <div class="score-wrap">
+        <span class="score" id="js-score"></span>
+        <span class="ja">/</span>
+        <span class="full" id="js-full">10</span>
+      </div>
+      <a href="/" class="redo-button">リプレイ</a>
+      <a href=" <%= href  %>" class="redo-button">戻る</a>
+    </div>
+
+  </div>
+</div>

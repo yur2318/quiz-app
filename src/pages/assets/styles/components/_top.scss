@@ -1,0 +1,124 @@
+@use "../const" as cn;
+
+.hero {
+  width: 100%;
+  height: 100%;
+  min-height: calc( 100vh - 160px );
+  margin: 100px auto;
+
+  &-inner {
+    margin-bottom: 100px;
+  }
+
+}
+
+.hero-headline {
+    text-align: center;
+    color: cn.$color-main;
+
+    &-main {
+      font-size: 50px;
+      font-weight: 600;
+    }
+
+    &-sub {
+      font-size: 30px;
+      font-weight: 400;
+    }
+}
+
+.hero-subject {
+    width: 100%;
+    margin-bottom: 100px;
+
+    &-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      margin-right: 20px;
+      transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+      box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        //文字の間広げる　ーで詰めれる
+        letter-spacing: 0.1em;
+        text-decoration: none;
+      }
+
+      &:nth-child(1) {
+        background-color: cn.$color-pink;
+        &:hover {
+          background-color: cn.$color-pink-dark;
+        }
+        &:active {
+          box-shadow: none;
+          transform: scale(0.98);
+        }
+      }
+
+      &:nth-child(2) {
+        background-color: cn.$color-blue;
+        &:hover {
+          background-color: cn.$color-blue-dark;
+        }
+        &:active {
+          box-shadow: none;
+          transform: scale(0.98);
+        }
+      }
+
+      &:nth-child(3) {
+        background-color: cn.$color-green;
+        &:hover {
+          background-color: cn.$color-green-dark;
+        }
+        &:active {
+          box-shadow: none;
+          transform: scale(0.98);
+        }
+      }
+
+      &:nth-child(4) {
+        background-color: cn.$color-orange;
+        &:hover {
+          background-color: cn.$color-orange-dark;
+        }
+        &:active {
+          box-shadow: none;
+          transform: scale(0.98);
+        }
+      }
+
+      &:nth-child(5) {
+        background-color: cn.$color-purple;
+        &:hover {
+          background-color: cn.$color-purple-dark;
+        }
+        &:active {
+          box-shadow: none;
+          transform: scale(0.98);
+        }
+      }
+    }
+  }
+

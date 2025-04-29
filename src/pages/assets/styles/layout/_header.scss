@@ -1,0 +1,79 @@
+@use "../const" as cn;
+
+/* ヘッダー */
+.header {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: cn.$color-base;
+  box-shadow: 0 1px 1px cn.$color-lightgray;
+  z-index: 99;
+
+  a {
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.3s ease;
+  
+    &:visited {
+      color: inherit;
+    }
+  
+    &:hover {
+      background-color: cn.$color-lightgray;
+    }
+  }
+}
+
+/* ナビゲーション左側 */
+.nav-left {
+  height: 100%;
+  display: flex;
+
+  &-list {
+    display: flex;
+  }
+
+  &-item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &-logo {
+    padding-top: 3px;
+
+    img {
+      display: block;
+      width: 55px;
+      height: 55px;
+    }
+  }
+}
+
+/* ナビゲーション右側 */
+.nav-right {
+  height: 100%;
+  display: flex;
+
+  &-list {
+    display: flex;
+    align-items: center;
+  }
+
+  &-item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
