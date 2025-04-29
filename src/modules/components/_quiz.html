@@ -2,9 +2,18 @@
   <div class="quiz-container">
 
     <div class="quiz-header">
-      <a href=" <%= href  %>" class="quiz-header-back">←</a>
+      <a href="<%= href %>" class="quiz-header-back">←</a>
       <div class="quiz-header-title" id="js-quiz-title"></div>
-      <div class="quiz-header-current-number" id="js-question-number"></div>
+
+      <!-- ★ここから -->
+      <div class="quiz-header-status">
+        <div class="quiz-progress">
+          <div class="quiz-progress-bar" id="js-quiz-progress"></div>
+        </div>
+        <div class="quiz-header-current-number" id="js-question-number"></div>
+      </div>
+      <!-- ★ここまで追加 -->
+
     </div>
 
     <div class="quiz-question">
@@ -37,8 +46,8 @@
         <span class="ja">/</span>
         <span class="full" id="js-full">10</span>
       </div>
-      <a href="/" class="redo-button">リプレイ</a>
-      <a href=" <%= href  %>" class="redo-button">戻る</a>
+      <button class="redo-button" id="js-reload">リプレイ</button>
+      <a href="<%= href %>" class="redo-button">戻る</a>
     </div>
 
   </div>

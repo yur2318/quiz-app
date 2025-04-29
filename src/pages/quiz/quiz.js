@@ -1,4 +1,3 @@
-
 export const quiz = (QUIZ_CONTENT) => {
   'use strict';
 
@@ -40,6 +39,7 @@ export const quiz = (QUIZ_CONTENT) => {
   const $hintButton = $quiz.querySelector('#js-quiz-hint');
   const $feedbackOverlay = $quiz.querySelector('.click-event');
   const $image = $quiz.querySelector('#js-explanation-image');
+  const $progressBar = $quiz.querySelector('#js-quiz-progress'); // ★進行バーを取得！
 
   const showImage = (question) => {
     $image.style.display = question.image ? 'block' : 'none';
@@ -55,6 +55,11 @@ export const quiz = (QUIZ_CONTENT) => {
     if (question.image) {
       $image.classList.add('is-show');
     }
+  };
+
+  const updateProgressBar = () => {
+    const progress = ((state.currentIndex + 1) / quizArray.length) * 100;
+    $progressBar.style.width = `${progress}%`;
   };
 
   const loadQuestion = () => {
@@ -74,6 +79,8 @@ export const quiz = (QUIZ_CONTENT) => {
         btn.setAttribute('data-correct', 'true');
       }
     });
+
+    updateProgressBar(); // ★問題読み込み時に進行バーも更新！
   };
 
   const shuffleAnswers = () => shuffleChoices($answerUl);
@@ -126,6 +133,11 @@ export const quiz = (QUIZ_CONTENT) => {
     $nextButton.textContent = '次の問題へ';
     shuffleAnswers();
   };
+
+  const $reloadButton = $quiz.querySelector('#js-reload');
+  $reloadButton.addEventListener('click', () => {
+  location.reload();
+});
 
   $buttons.forEach(btn => btn.addEventListener('click', e => handleAnswer(e.currentTarget)));
   $hintButton.addEventListener('click', () => showExplanation(quizArray[state.currentIndex]));
