@@ -4,16 +4,12 @@
     <div class="quiz-header">
       <a href="<%= href %>" class="quiz-header-back">←</a>
       <div class="quiz-header-title" id="js-quiz-title"></div>
-
-      <!-- ★ここから -->
       <div class="quiz-header-status">
-        <div class="quiz-progress">
-          <div class="quiz-progress-bar" id="js-quiz-progress"></div>
+        <div class="header-status-number" id="js-question-number"></div>
+        <div class="header-status-progress">
+          <div class="header-status-progress-bar" id="js-quiz-progress"></div>
         </div>
-        <div class="quiz-header-current-number" id="js-question-number"></div>
       </div>
-      <!-- ★ここまで追加 -->
-
     </div>
 
     <div class="quiz-question">
@@ -28,10 +24,16 @@
     </ul>
 
     <div class="quiz-hint-next">
-      <button class="quiz-hint" id="js-quiz-hint">💡ヒント</button>
-      <button class="next-button is-hidden" id="js-next-question">次の問題へ</button>
+      <button class="quiz-hintbutton" id="js-quiz-hint-button">
+        <img src="/images/light.png" alt="hint" width="33px" height="33px">
+        <p>チェック</p>
+      </button>
+      <button class="next-button" id="js-next-question">次の問題へ</button>
     </div>
 
+    <div class="quiz-hint">
+      <div class="quiz-explanation-text" id="js-quiz-hint-text"></div>
+    </div>
     <div class="quiz-explanation">
       <div class="quiz-explanation-text" id="js-quiz-explanation"></div>
       <img class="quiz-explanation-image" id="js-explanation-image" alt="問題画像">
