@@ -29,6 +29,9 @@ export const quiz = (QUIZ_CONTENT) => {
   const $number = $quiz.querySelector('#js-question-number');
   const $progressBar = $quiz.querySelector('#js-quiz-progress'); 
   const $questionContent = $quiz.querySelector('#js-question-content');
+  const $image = $quiz.querySelector('#js-question-img');
+  const $modal = $quiz.querySelector('#js-question-modal');
+  const $modalImg = $quiz.querySelector('#js-question-modal-img');
   const $buttons = $quiz.querySelectorAll('.js-quiz-button');
   const $answerUl = $quiz.querySelector('.quiz-answer');
   const $TorF = $quiz.querySelector('.click-event');
@@ -36,26 +39,24 @@ export const quiz = (QUIZ_CONTENT) => {
   const $hint = $quiz.querySelector('#js-quiz-hint-text');
   const $explanation = $quiz.querySelector('#js-quiz-explanation');
   const $nextButton = $quiz.querySelector('#js-next-question');
-  const $image = $quiz.querySelector('#js-explanation-image');
   const $finishScreen = $quiz.querySelector('.finish');
   const $score = $quiz.querySelector('#js-score');
   const $reloadButton = $quiz.querySelector('#js-reload');
+  
 
   //サブ関数
   const shuffleAnswers = () => shuffleChoices($answerUl);
 
-  // const showImage = (question) => {
-  //   if (question.image) {
-  //     $image.style.display = 'block';
-  //     $image.src = question.image;
-  //   } else {
-  //     $image.style.display = 'none';
-  //     $image.src = '';
-  //   }
-  // };
-      // if (question.image) {
-     //   $image.classList.add('is-show');
-    // }
+  const showImage = (question) => {
+    if (question.image) {
+      $image.style.display = 'block';
+      $image.src = question.image;
+    } else {
+      $image.style.display = 'none';
+      $image.src = '';
+    }
+  };
+
 
   const showExplanation = (question) => {
     $explanation.textContent = question.explanation;
@@ -74,8 +75,6 @@ export const quiz = (QUIZ_CONTENT) => {
     const currentQ = quizArray[state.currentIndex];
     $questionContent.textContent = currentQ.question;
 
-    // $image.classList.remove('is-show');
-
     currentQ.answers.forEach((answerText, i) => {
       const btn = $buttons[i];
       btn.textContent = answerText; //各ボタンに選択肢のテキストを表示
@@ -85,6 +84,7 @@ export const quiz = (QUIZ_CONTENT) => {
     });
 
     updateProgressBar(); // ★問題読み込み時に進行バーも更新！
+    showImage(currentQ);
     shuffleAnswers();
   };
 
@@ -132,16 +132,29 @@ export const quiz = (QUIZ_CONTENT) => {
 
 
   //ボタン押すと起こるイベント
+  $image.addEventListener('click', () => {
+    const currentQ = quizArray[state.currentIndex]; // 現在の問題を取得
+    if (currentQ.image) {
+      $modal.classList.add('is-show');
+      $modalImg.src = currentQ.image;
+      $modalImg.alt = currentQ.question;
+    }
+  });
+  
+  
+  $modal.addEventListener('click', () => {
+    $modal.classList.remove('is-show');
+  });
 
   $buttons.forEach(btn => btn.addEventListener('click', e => handleAnswer(e.currentTarget)));
 
   $hintButton.addEventListener('click', () => {
-    const question = quizArray[state.currentIndex];
+    const currentQ = quizArray[state.currentIndex];
     if ($hint.classList.contains('is-show')) {
       $hint.classList.remove('is-show');
       $image.classList.remove('is-show');
     } else {
-      $hint.textContent = question.hint;
+      $hint.textContent = currentQ.hint;
       $hint.classList.add('is-show');
     }
   });  

@@ -3,18 +3,20 @@ export const QUIZ_CONTENT = {
   data: [
     {
       id: "01",
-      question: "「記号」？",
+      question: "「記号」",
       answers: ["しんごう", "きごう", "あんごう", "にっき"],
       correct: "きごう",
+      hint:"",
       explanation: "あんごう→暗号、にっき→日記、しんごう→信号だよ！",
       image: ""
     },
     { 
       id: "02", 
-      question: "世界で一番面積の大きい国は？",
-      answers: ["ロシア", "アメリカ", "中国", "ブラジル"], 
-      correct: "ロシア", 
-      explanation: "地図を見て、どこの国が一番大きいか見てみよう！" ,
+      question: "「特徴」", 
+      answers: ["とくぎ", "とくちょう", "とくしょく", "しょうちょう"], 
+      correct: "とくちょう", 
+      hint:"",
+      explanation: "とくぎ→特技、とくしょく→特色、しょうちょう→象徴だよ！" ,
       image: ""
     },
     { 

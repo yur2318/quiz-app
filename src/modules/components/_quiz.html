@@ -14,6 +14,11 @@
 
     <div class="quiz-question">
       <h2 class="quiz-question-content" id="js-question-content"></h2>
+      <img class="quiz-question-img" id="js-question-img" alt="画像">
+      <div class="quiz-question-modal" id="js-question-modal">
+        <span>画像を押すと閉じます</span>
+        <img class="quiz-question-modal-img" id="js-question-modal-img" alt="画像">
+      </div>
     </div>
 
     <ul class="quiz-answer">
@@ -25,18 +30,15 @@
 
     <div class="quiz-hint-next">
       <button class="quiz-hintbutton" id="js-quiz-hint-button">
+        <p>　ヒント</p>
         <img src="/images/light.png" alt="hint" width="33px" height="33px">
-        <p>チェック</p>
       </button>
       <button class="next-button" id="js-next-question">次の問題へ</button>
     </div>
 
-    <div class="quiz-hint">
-      <div class="quiz-explanation-text" id="js-quiz-hint-text"></div>
-    </div>
     <div class="quiz-explanation">
-      <div class="quiz-explanation-text" id="js-quiz-explanation"></div>
-      <img class="quiz-explanation-image" id="js-explanation-image" alt="問題画像">
+      <div class="quiz-explanation-text is-hint" id="js-quiz-hint-text"></div>
+      <div class="quiz-explanation-text is-explanation" id="js-quiz-explanation"></div>
     </div>
 
     <div class="click-event"></div>

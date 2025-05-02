@@ -89,13 +89,13 @@
 }
 
 .quiz-question {
+  min-height: 250px;
   width: 80%;
   margin: 0px auto;
   border: 3px solid var(--main-color);
   border-radius: 12px;
 
   &-content {
-    height: 10rem;
     font-size: 32px;
     font-weight: bold;
     margin: 30px 0;
@@ -103,6 +103,44 @@
     text-align: left;
     position: relative;
   }
+
+  &-img {
+    margin: 10px auto;
+    max-width: 300px;
+    max-height: 200px;
+  }
+  
+  &-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+  
+    &.is-show {
+      display: block;
+    }
+
+    span{
+      position: absolute;
+      left: 50%;
+      bottom: 10px;
+      transform: translate(-50%, 0); 
+      margin: 0;
+      color: cn.$color-main;
+      text-align: center;
+    }
+  
+    &-img {
+      max-width: 900px;
+      max-height: 600px;
+      border: 1px solid cn.$color-lightgray;
+      border-radius: 8px;
+      box-shadow: 0 0px 50px var(--main-color-dark);
+    }
+  }
+  
 }
 
 .quiz-answer {
@@ -191,6 +229,7 @@
   .next-button {
     display: none;
     height: 50px;
+    min-width: 115px;
     position: absolute;
     right: 30px;
     padding: 10px;
@@ -216,34 +255,46 @@
 }
 
 .quiz-explanation {
-  display: block;
-  margin-top: 20px;
-  min-height: 100px;
+  margin: 15px 10px;
+  min-height: 150px;
 
   &-text {
-    width: 80%;
-    margin: 0 auto 20px;
-    padding: 0 15px;
+    padding-left: 25px;
+    margin: 0 10px 20px 90px;
     border-left: 5px solid var(--main-color);
     font-size: 20px;
     line-height: 1.6;
     display: none;
+    position: relative;
 
     &.is-show {
       display: block;
     }
   }
 
-  &-image {
-    width: 80%;
-    margin: 0 auto 30px;
-    display: none;
+  .is-hint::before {
+    content: "ヒント";
+    position: absolute;
+    left: -70px;
+    top: 50%;
+    transform: translate(0%, -50%);
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--main-color);
+  }
 
-    &.is-show {
-      display: block;
-    }
+  .is-explanation::before {
+    content: "解説";
+    position: absolute;
+    left: -63px;
+    top: 50%;
+    transform: translate(0%, -50%);
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--main-color);
   }
 }
+
 
 .click-event {
   &::before {
