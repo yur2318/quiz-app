@@ -1,60 +1,43 @@
-<% const head = { 
-  title: menu.title, 
-  disc: menu.disc };%> 
+<% const head = { title: menu.title, disc: menu.disc };%> 
 <%- include('../modules/meta/_head.html', head) %> 
 <%- include('../modules/layout/_header.html') %> 
 
 <main>
-
 <div class="menu menu-social">
   <div class="menu-subject">
     <h1>社会</h1>
   </div>
   <div class="row">
     <ul class="chapter-list">
-      <li class="chapter-item">
-        <h2 class="chapter-item-title">
-          地理
-          <span class="arrow"></span>
-        </h2>
-        <ul class="chapter-item-link">
-          <li><a href="/quiz/social/01_social">地球の姿</a></li>
-          <li><a href="/quiz/social/02_social">世界の姿</a></li>
-          <li><a href="">世界の気候と生活</a></li>
-          <li><a href="">アジア州</a></li>
-          <li><a href="">ヨーロッパ州</a></li>
-          <li><a href="">アフリカ州</a></li>
-        </ul>
-      </li>
-      <li class="chapter-item">
-        <h2 class="chapter-item-title">
-          歴史
-          <span class="arrow"></span>
-        </h2>
-        <ul class="chapter-item-link">
-          <li><a href="">人類の誕生と文明の怒り</a></li>
-          <li><a href="">古代日本</a></li>
-          <li><a href="">鎌倉時代</a></li>
-          <li><a href="">室町〜安土桃山時代</a></li>
-          <li><a href="">江戸時代</a></li>
-          <li><a href="">近代ヨーロッパと日本</a></li>
-        </ul>
-      </li>
-      <li class="chapter-item">
-        <h2 class="chapter-item-title">
-          公民
-          <span class="arrow"></span>
-        </h2>
-        <ul class="chapter-item-link">
-          <li><a href="">日本国憲法の基本</a></li>
-          <li><a href="">国会</a></li>
-          <li><a href="">内閣</a></li>
-          <li><a href="">裁判所</a></li>
-          <li><a href="">地方自治</a></li>
-          <li><a href="">経済</a></li>
-        </ul>
-      </li>
+      <% SOCIAL_MENU.forEach(chapter => { %>
+        <li class="chapter-item">
+          <h2 class="chapter-item-title">
+            <%= chapter.title %>
+            <span class="arrow"></span>
+          </h2>
+          <ul class="chapter-item-link">
+            <% chapter.items.forEach(item => { %>
+              <li>
+                <p><%= item.name %></p>
+                <a href="/quiz/social/<%= item.id %>_socialKanji">漢字</a>
+                <a href="/quiz/social/<%= item.id %>_social">基礎</a>
+              </li>
+            <% }) %>
+          </ul>
+        </li>
+      <% }) %>
     </ul>
+    <section class="basic-section">
+      <h2 class="basic-title">
+        <img src="/images/beginner.png" alt="" width="25" height="25">
+        ここから始めよう
+      </h2>
+      <ul class="basic-list">
+        <% BASIC_JAPANESE.forEach(item => { %>
+          <li><a href="<%= item.href %>"><%= item.name %></a></li>
+        <% }) %>
+      </ul>
+    </section>    
   </div>
 </div>
 

@@ -1,15 +1,16 @@
 @use "../const" as cn;
 
 .menu {
-  padding-top: 10px;
   min-height: calc(100vh - 60px);
+  width: 90%;
+  margin: 0 auto;
+}
 
   .menu-subject {
-    width: 90%;
-    margin: 30px auto;
     padding: 30px 50px;
-    background-color: var(--main-color); // ★ここポイント！
+    background-color: var(--main-color); 
     border-radius: 3px;
+    margin-bottom: 50px;
     
     h1 {
       font-size: 35px;
@@ -19,111 +20,167 @@
   }
 
   .row {
-    width: 90%;
-    margin: 30px auto;
+    display: flex;
   }
 
   .chapter-list {
     width: 700px;
-    list-style: none;
-  }
-
-  .chapter-item {
-    background-color: #fff;
-    overflow: hidden;
-
-    .chapter-item-title {
-      margin: 0;
-      background-color: #f9f9f9;
-      padding: 1rem;
-      font-size: 1.5rem;
-      font-weight: bold;
-      border: 1px solid #e8e8e8;
-      border-left: 5px solid var(--main-color); // ★ここもポイント！
-      position: relative;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      padding-right: 2rem;
-
-      &:hover {
-        background-color: #f0f0f0;
+    margin: 0 0 50px 0;
+  
+    .chapter-item {
+  
+      .chapter-item-title {
+        margin: 0;
+        background-color: #f9f9f9;
+        padding: 1rem;
+        font-size: 25px;
+        font-weight: bold;
+        border: 1px solid #e8e8e8;
+        border-left: 5px solid var(--main-color);
+        position: relative;
+        transition: background-color 0.3s;
+        &:hover {
+          background-color: #f0f0f0;
+        }
+  
+        .arrow {
+          position: absolute;
+          right: 1rem;
+          top: 50%;
+          transform: translateY(-50%) rotate(0deg);
+          width: 0;
+          height: 0;
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+          border-top: 8px solid #666;
+          transition: transform 0.3s ease;
+          &.is-open {
+            transform: translateY(-50%) rotate(180deg);
+          }
+        }
       }
-
-      .arrow {
-        position: absolute;
-        right: 1rem;
-        top: 50%;
-        transform: translateY(-50%) rotate(0deg);
-        width: 0;
-        height: 0;
-        border-left: 6px solid transparent;
-        border-right: 6px solid transparent;
-        border-top: 8px solid #666;
-        transition: transform 0.3s ease;
-
+  
+      .chapter-item-link {
+        max-height: 0;
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+        opacity: 0;
+  
         &.is-open {
-          transform: translateY(-50%) rotate(180deg);
+          max-height: 2000px;
+          opacity: 1;
         }
-      }
-    }
-
-    .chapter-item-link {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, opacity 0.5s ease;
-      opacity: 0;
-
-      &.is-open {
-        max-height: 500px;
-        opacity: 1;
-      }
-
-      li {
-        border: 1px solid #eee;
-
-        &:first-child {
-          border-top: none;
-        }
-
-        a {
-          display: block;
-          padding: 1rem;
-          text-decoration: none;
-          color: #555;
-          font-size: 1rem;
+  
+        li {
+          display: flex;
+          align-items: center;
+          border: 1px solid #eee;
+          padding: 10px 20px;
+          font-size: 18px;
           transition: background-color 0.3s;
-
-          &:hover {
-            background-color: #f0f0f0;
+          gap: 30px;
+  
+          &:first-child {
+            border-top: none;
+          }
+  
+          p {
+            margin: 0;
+            flex: 1;
+          }
+  
+          a {
+            width: 100px;
+            text-align: center;
+            padding: 10px 15px;
+            font-size: 18px;
+            color: var(--main-color-dark);
+            background-color: var(--main-color-light);
+            border-radius: 30px;
+            transition: background-color 0.3s;
+  
+            &:hover {
+              opacity: .8;
+            }
           }
         }
       }
     }
   }
+  
+
+.basic-section {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 32px 20px;
 }
+
+.basic-title {
+  height: 60px;
+  font-size: 20px;
+//上下中央揃え
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #00681f;
+  background-color: cn.$color-yellowgreen-light;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.basic-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: 8px;
+
+    a {
+      display: block;
+      padding: 12px 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      color: #333;
+      background: #fff;
+      transition: transform 0.2s;
+
+      &:hover {
+        background: #f5f5f5;
+        transform: translateX(2px);
+      }
+    }
+  }
+}
+
+
+
 
 /* 教科別色設定 */
 
 
-.menu-japanese {
+.menu-japanese { 
   --main-color: #{cn.$color-pink};
+  --main-color-light: #{cn.$color-pink-light};
+  --main-color-dark: #{cn.$color-pink-dark};
 }
-
-.menu-math {
+.menu-math { 
   --main-color: #{cn.$color-blue};
+  --main-color-light: #{cn.$color-blue-light};
+  --main-color-dark: #{cn.$color-blue-dark};
 }
-
-.menu-science {
-  --main-color: #{cn.$color-green};
+.menu-science { 
+  --main-color: #{cn.$color-green}; 
+  --main-color-light: #{cn.$color-green-light};
+  --main-color-dark: #{cn.$color-green-dark};
 }
-
-.menu-social {
-  --main-color: #{cn.$color-orange};
+.menu-social { --main-color: #{cn.$color-orange}; 
+  --main-color-light: #{cn.$color-orange-light};
+  --main-color-dark: #{cn.$color-orange-dark};
 }
-
-.menu-english {
-  --main-color: #{cn.$color-purple};
+.menu-english { --main-color: #{cn.$color-purple};
+  --main-color-light: #{cn.$color-purple-light};
+  --main-color-dark: #{cn.$color-purple-dark};
 }

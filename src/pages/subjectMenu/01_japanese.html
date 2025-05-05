@@ -12,35 +12,34 @@
   </div>
   <div class="row">
     <ul class="chapter-list">
-      <li class="chapter-item">
-        <h2 class="chapter-item-title">
-          漢字
-          <span class="arrow"></span>
-        </h2>
-        <ul class="chapter-item-link">
-          <li><a href="/quiz/japanese/01_japanese">世界の姿</a></li>
-          <li><a href="">日本の姿</a></li>
-          <li><a href="">世界の気候と生活</a></li>
-          <li><a href="">アジア州</a></li>
-          <li><a href="">ヨーロッパ州</a></li>
-          <li><a href="">アフリカ州</a></li>
-        </ul>
-      </li>
-      <li class="chapter-item">
-        <h2 class="chapter-item-title">
-          文法
-          <span class="arrow"></span>
-        </h2>
-        <ul class="chapter-item-link">
-          <li><a href="">人類の誕生と文明の怒り</a></li>
-          <li><a href="">古代日本</a></li>
-          <li><a href="">鎌倉時代</a></li>
-          <li><a href="">室町〜安土桃山時代</a></li>
-          <li><a href="">江戸時代</a></li>
-          <li><a href="">近代ヨーロッパと日本</a></li>
-        </ul>
-      </li>
+      <% JAPANESE_MENU.forEach(chapter => { %>
+        <li class="chapter-item">
+          <h2 class="chapter-item-title">
+            <%= chapter.title %>
+            <span class="arrow"></span>
+          </h2>
+          <ul class="chapter-item-link">
+            <% chapter.items.forEach(item => { %>
+              <li>
+                <p><%= item.name %></p>
+                <a href="/quiz/japanese/<%= item.id %>_japanese">基礎</a>
+              </li>
+            <% }) %>
+          </ul>
+        </li>
+      <% }) %>
     </ul>
+    <section class="basic-section">
+      <h2 class="basic-title">
+        <img src="/images/beginner.png" alt="" width="25" height="25">
+        ここから始めよう
+      </h2>
+      <ul class="basic-list">
+        <% BASIC_JAPANESE.forEach(item => { %>
+          <li><a href="<%= item.href %>"><%= item.name %></a></li>
+        <% }) %>
+      </ul>
+    </section>    
   </div>
 </div>
 

@@ -14,7 +14,7 @@
   box-shadow: 0 1px 1px cn.$color-lightgray;
   z-index: 99;
 
-  a {
+  li > a {
     width: 100%;
     height: 100%;
     padding: 0 10px;
@@ -65,6 +65,7 @@
 .nav-right {
   height: 100%;
   display: flex;
+  padding-right: 50px;
 
   &-list {
     display: flex;
@@ -72,8 +73,55 @@
   }
 
   &-item {
+    padding-right: 10px;
     height: 100%;
     display: flex;
     align-items: center;
   }
+
+.trigger {
+  position: fixed;
+  z-index: 1000;
+  border: 0;
+  padding: 0;
+  background: none;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  &::before,
+  &::after,
+  > span {
+    content: "";
+    display: block;
+    left: 0;
+    width: 100%;
+    border-top: 5px solid cn.$color-main;
+    border-radius: 5px;
+    transition: transform .2s ease-in-out;
+  }
+  &::before {
+    position: absolute;
+    top: 4px;
+    transform-origin: top right;
+  }
+  &::after {
+    position: absolute;
+    bottom: 4px;
+    transform-origin: bottom right;
+  }
+  // Active style
+  &.is-active {
+    &::before {
+      transform: translateX(-2px) rotate(-45deg);
+    }
+    &::after {
+      transform: translateX(-2px) rotate(45deg);
+    }
+    > span {
+      transform: translateX(100%);
+    }
+  }
 }
+
+}
+

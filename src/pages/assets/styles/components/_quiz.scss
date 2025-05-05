@@ -196,9 +196,9 @@
 
 .quiz-hint-next {
   display: flex;
+  height: 50px;
   justify-content: center; // ←左右中央にする
   align-items: center;      // ←上下中央にする
-
 
   .quiz-hintbutton {
     height: 50px;

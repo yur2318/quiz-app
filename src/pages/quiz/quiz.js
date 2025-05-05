@@ -70,9 +70,9 @@ export const quiz = (QUIZ_CONTENT) => {
 
   //メイン関数
   const loadQuestion = () => { //init
+    const currentQ = quizArray[state.currentIndex];
     $title.textContent = QUIZ_TITLE;
     $number.textContent = `${state.currentIndex + 1}/${quizArray.length}`;
-    const currentQ = quizArray[state.currentIndex];
     $questionContent.textContent = currentQ.question;
 
     currentQ.answers.forEach((answerText, i) => {
@@ -83,9 +83,16 @@ export const quiz = (QUIZ_CONTENT) => {
       }
     });
 
+    if (currentQ.hint && currentQ.hint.trim() !== '') {
+      $hintButton.style.display = 'flex';
+    } else {
+      $hintButton.style.display = 'none';
+    }
+
     updateProgressBar(); // ★問題読み込み時に進行バーも更新！
     showImage(currentQ);
     shuffleAnswers();
+
   };
 
   const handleAnswer = (button) => { //クリックした時
